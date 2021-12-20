@@ -77,6 +77,9 @@ spec:
       env:
         - name: HOME
           value: /tekton/home
+      envFrom:
+        - secretRef:
+            name: $(params.ARTIFACTORY_CREDENTIALS_SECRET)    
     - name: generate
       image: quay.io/openshift-pipeline/s2i
       workingdir: $(workspaces.source.path)
@@ -99,6 +102,9 @@ spec:
       env:
         - name: HOME
           value: /tekton/home
+      envFrom:
+        - secretRef:
+            name: $(params.ARTIFACTORY_CREDENTIALS_SECRET)        
     - name: build
       image: $(params.BUILDER_IMAGE)
       workingdir: /gen-source
