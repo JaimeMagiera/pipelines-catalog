@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: s2i-java
+  name: icpsr-s2i-java
   labels:
     app.kubernetes.io/version: "0.1"
   annotations:
